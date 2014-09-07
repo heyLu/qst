@@ -13,6 +13,7 @@ import (
 	"os"
 	"os/exec"
 	"os/signal"
+	"path"
 	"path/filepath"
 	"strings"
 	"syscall"
@@ -28,6 +29,7 @@ var command = flag.String("command", "", "command to run ({file} will be substit
 var projectType = flag.String("type", "", "project type to use (autodetected if not present)")
 var phase = flag.String("phase", "run", "which phase to run (build, run or test)")
 var justDetect = flag.Bool("detect", false, "detect the project type and exit")
+var remote = flag.Bool("remote", false, "fetch and run a remote project")
 
 func main() {
 	flag.Usage = func() {
@@ -49,6 +51,14 @@ func main() {
 	}
 
 	file := args[0]
+
+	if *remote {
+		f, err := fetchFromGit(file)
+		if err != nil {
+			log.Fatal(err)
+		}
+		file = *f
+	}
 
 	if *justDetect {
 		projects := detect.DetectAll(file)
@@ -103,6 +113,39 @@ func main() {
 
 func flagEmpty(stringFlag *string) bool {
 	return stringFlag == nil || strings.TrimSpace(*stringFlag) == ""
+}
+
+func fetchFromGit(file string) (*string, error) {
+	if !strings.HasPrefix(file, "github.com") {
+		return nil, errors.New("only github repos supported for now, sorry")
+	}
+	repo, dir, err := splitGithubUrl(file)
+	if err != nil {
+		return nil, err
+	}
+	log.Printf("cloning %s", *repo)
+	cloneCmd := exec.Command("git", "clone", *repo)
+	cloneCmd.Stderr = os.Stderr
+	cloneCmd.Stdout = os.Stdout
+	err = cloneCmd.Run()
+	if err != nil {
+		return nil, err
+	}
+	return dir, nil
+}
+
+func splitGithubUrl(repo string) (*string, *string, error) {
+	repoWithPath := strings.TrimPrefix(strings.TrimPrefix(repo, "git://"), "github.com/")
+	parts := strings.SplitN(repoWithPath, "/", 3)
+	if len(parts) < 2 || parts[0] == "" || parts[1] == "" {
+		return nil, nil, errors.New(fmt.Sprint("error: invalid repo: ", repo))
+	}
+	repoUrl := fmt.Sprintf("git://github.com/%s/%s", parts[0], parts[1])
+	dir := parts[1]
+	if len(parts) == 3 {
+		dir = path.Join(dir, parts[2])
+	}
+	return &repoUrl, &dir, nil
 }
 
 func runCmd(file string, runner *Runner) {
