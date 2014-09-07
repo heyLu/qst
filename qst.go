@@ -53,7 +53,7 @@ func main() {
 	if *justDetect {
 		projects := detect.DetectAll(file)
 		if len(projects) == 0 {
-			log.Fatal("unkown project type")
+			log.Fatal("unknown project type")
 		}
 		for _, project := range projects {
 			fmt.Println(project.Id)
