@@ -39,6 +39,7 @@ var ProjectTypes = []*Project{
 		matchFile("package.json")},
 	&Project{"javascript/meteor", Commands{"run": "meteor"}, matchFile(".meteor/.id")},
 	&Project{"javascript/default", Commands{"run": "node {file}"}, matchPattern("*.js")},
+	&Project{"jekyll", Commands{"build": "jekyll build", "run": "jekyll serve --watch"}, jekyllDefault},
 	&Project{"julia/default", Commands{"run": "julia {file}"}, matchPattern("*.jl")},
 	&Project{"python/django", Commands{"build": "python manage.py syncdb", "run": "python manage.py runserver",
 		"test": "python manage.py test"}, matchFile("manage.py")},
@@ -120,4 +121,8 @@ func executableDefault(file string) bool {
 
 func haskellDefault(file string) bool {
 	return matchingFileOrDir(file, "*.hs") || matchingFileOrDir(file, "*.lhs")
+}
+
+func jekyllDefault(file string) bool {
+	return hasFile(file, "_config.yml") || fileutil.IsDir(fileutil.Join(file, "_posts"))
 }
