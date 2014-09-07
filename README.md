@@ -1,18 +1,4 @@
-# go
-
-Playing with [go](http://golang.org). Late to the party, but it's fun,
-I think.
-
-## thoughts
-
-- *fast*
-- some level of *type-safety* (just scratched the surface so far)
-- good *tool support* (fast (!) compilation, the `go` tool itself,
-	fetching libraries built-in, though versioning is missing)
-- *simple* (mostly, goroutines + no proper sync will bite you,
-	thinking helps, as always)
-
-## qst - run things quickly (and easily)
+# qst - run things quickly (and easily)
 
 intended to be run in unfamilar environments, you pass it a file or a
 directory and it tries to detect what it is and how to run it.
@@ -25,7 +11,7 @@ directory and it tries to detect what it is and how to run it.
 	watch and restart when appropriate.
 - `qst -phase=test ...` runs the tests for projects that support it
 
-### Building it yourself
+## Building it yourself
 
 	# set up $GOPATH as desired
 	$ export GOPATH=$PWD/.go         # choose whatever you want
@@ -42,7 +28,7 @@ directory and it tries to detect what it is and how to run it.
 
 Try changing something in the files, it's fun. :)
 
-### Ideas/todo
+## Ideas/todo
 
 - watch many files (select by globbing)
 - sometimes restarts twice after one save?
