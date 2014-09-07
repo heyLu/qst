@@ -27,7 +27,7 @@ var delay = flag.Duration("delay", 1*time.Second, "time to wait until restart")
 var autoRestart = flag.Bool("autorestart", true, "automatically restart after command exists")
 var command = flag.String("command", "", "command to run ({file} will be substituted)")
 var projectType = flag.String("type", "", "project type to use (autodetected if not present)")
-var phase = flag.String("phase", "run", "which phase to run (build, run or test)")
+var step = flag.String("step", "run", "which step to run (build, run or test)")
 var justDetect = flag.Bool("detect", false, "detect the project type and exit")
 var remote = flag.Bool("remote", false, "fetch and run a remote project")
 
@@ -38,7 +38,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "\nSupported project types: \n")
 		for _, project := range detect.ProjectTypes {
 			paddedId := fmt.Sprintf("%s%s", project.Id, strings.Repeat(" ", 30-len(project.Id)))
-			fmt.Fprintf(os.Stderr, "\t%s- %v\n", paddedId, project.Commands[*phase])
+			fmt.Fprintf(os.Stderr, "\t%s- %v\n", paddedId, project.Commands[*step])
 		}
 	}
 
@@ -88,9 +88,9 @@ func main() {
 			log.Fatal("error: ", err)
 		}
 		log.Printf("detected a %s project", project.Id)
-		projectCmd, found := project.Commands[*phase]
+		projectCmd, found := project.Commands[*step]
 		if !found {
-			log.Fatalf("%s doesn't support `%s'", project.Id, *phase)
+			log.Fatalf("%s doesn't support `%s'", project.Id, *step)
 		}
 		cmd = projectCmd
 	}

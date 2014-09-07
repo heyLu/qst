@@ -9,7 +9,7 @@ directory and it tries to detect what it is and how to run it.
 
 	quite fun for small things, just throw some code in a file, have `qst`
 	watch and restart when appropriate.
-- `qst -phase=test ...` runs the tests for projects that support it
+- `qst -step=test ...` runs the tests for projects that support it
 
 ## Building it yourself
 
