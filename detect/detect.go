@@ -5,7 +5,7 @@ import (
 	"errors"
 	"path"
 
-	"../fileutil"
+	"github.com/heyLu/qst/fileutil"
 )
 
 type Project struct {

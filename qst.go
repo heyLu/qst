@@ -18,8 +18,8 @@ import (
 	"syscall"
 	"time"
 
-	"./detect"
-	"./fileutil"
+	"github.com/heyLu/qst/detect"
+	"github.com/heyLu/qst/fileutil"
 )
 
 var delay = flag.Duration("delay", 1*time.Second, "time to wait until restart")
