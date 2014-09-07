@@ -95,7 +95,7 @@ func matchingFileOrDir(file string, pattern string) bool {
 		isMatch, _ := path.Match(pattern, f)
 		return isMatch
 	} else {
-		return fileutil.MatchExists(path.Join(path.Dir(file), pattern))
+		return fileutil.MatchExists(path.Join(file, pattern))
 	}
 }
 
