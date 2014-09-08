@@ -41,6 +41,7 @@ var ProjectTypes = []*Project{
 	&Project{"javascript/default", Commands{"run": "node {file}"}, matchPattern("*.js")},
 	&Project{"jekyll", Commands{"build": "jekyll build", "run": "jekyll serve --watch"}, jekyllDefault},
 	&Project{"julia/default", Commands{"run": "julia {file}"}, matchPattern("*.jl")},
+	&Project{"latex/default", Commands{"run": "pdflatex {file}"}, latexDefault},
 	&Project{"python/django", Commands{"build": "python manage.py syncdb", "run": "python manage.py runserver",
 		"test": "python manage.py test"}, matchFile("manage.py")},
 	&Project{"python/default", Commands{"run": "python {file}"}, matchPattern("*.py")},
@@ -125,4 +126,8 @@ func haskellDefault(file string) bool {
 
 func jekyllDefault(file string) bool {
 	return hasFile(file, "_config.yml") || fileutil.IsDir(fileutil.Join(file, "_posts"))
+}
+
+func latexDefault(file string) bool {
+	return matchingFileOrDir(file, "*.latex") || matchingFileOrDir(file, "*.tex")
 }
