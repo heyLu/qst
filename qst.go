@@ -80,8 +80,6 @@ func main() {
 			project = detect.GetById(*projectType)
 			if project == nil {
 				log.Fatalf("unknown type: `%s'", *projectType)
-			} else if !project.Detect(file) {
-				log.Fatalf("%s doesn't match type %s!", file, *projectType)
 			}
 		}
 		if err != nil {
