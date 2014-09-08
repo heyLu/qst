@@ -59,6 +59,29 @@ it yourself to hack on it.
 
 Try changing something in the files, it's fun. :)
 
+## Adding more project types
+
+If you're lucky, add one line to set a name, specify the scripts to run
+for the various steps and a dection pattern:
+
+```go
+/* detect/detect.go */
+
+// ...
+&Project{"ruby", Commands{"run": "ruby {file}"}, matchPattern("*.rb")},
+// ...
+```
+
+You can also check for the presence using `matchFile("bin/rails"). If
+you need to do more you can also specify a `Matcher` function to detect
+the type.
+
+`Commands` is simply a map from `step` to a shell command to run. You can
+use the `{file}` variable as a placeholder for the file argument you pass
+to `qst`.
+
+Have a look at [detect/detect.go](detect/detect.go) to see more examples.
+
 ## Ideas/todo
 
 - watch many files (select by globbing)
