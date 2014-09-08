@@ -65,3 +65,6 @@ Try changing something in the files, it's fun. :)
 - more steps:
 	* install (packages using the dependency manager of the type)
 	* init (create a new blueprint for projects)
+
+any further ideas? if so, open an issue or better yet, implement it yourself
+and send me a pull request.
