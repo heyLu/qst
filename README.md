@@ -27,7 +27,18 @@ directory and it tries to detect what it is and how to run it.
 anything, but to make your life a little bit simpler. there are more interesting
 things to remember.
 
-## Building it yourself
+for more, see ["introducing quickstart"](https://github.com/heyLu/w/blob/master/introducing-quickstart.md)
+
+## I want that
+
+Great! You can either download precompile binaries ([bsd64](#), [linux64](#), [mac64](#)),
+install it using `go get github.com/heyLu/qst` or clone the repo and build
+it yourself to hack on it.
+
+### Building it yourself
+
+(Just a reminder: Only do this if you want to improve it, otherwise
+`go get github.com/heyLu/qst` might be what you want instead.)
 
 	# set up $GOPATH as desired
 	$ export GOPATH=$PWD/.go         # choose whatever you want
