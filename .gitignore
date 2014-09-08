@@ -1,6 +1,7 @@
 .go
 
 qst
+qst-*
 
 examples/hello
 examples/hello_web
