@@ -31,9 +31,13 @@ for more, see ["introducing quickstart"](https://github.com/heyLu/w/blob/master/
 
 ## I want that
 
-Great! You can either download precompile binaries ([bsd64](#), [linux64](#), [mac64](#)),
+Great! You can either download precompile binaries ([bsd64][], [linux64][], [mac64][],
 install it using `go get github.com/heyLu/qst` or clone the repo and build
 it yourself to hack on it.
+
+[bsd64]: https://github.com/heyLu/qst/releases/download/v0.1.0/qst-freebsd-amd64
+[linux64]: https://github.com/heyLu/qst/releases/download/v0.1.0/qst-linux-amd64
+[mac64]: https://github.com/heyLu/qst/releases/download/v0.1.0/qst-darwin-amd64
 
 ### Building it yourself
 
