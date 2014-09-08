@@ -31,7 +31,7 @@ for more, see [introducing quickstart](https://github.com/heyLu/w/blob/master/in
 
 ## I want that
 
-Great! You can either download precompile binaries ([bsd64][], [linux64][], [mac64][],
+Great! You can either download precompiled binaries ([bsd64][], [linux64][], [mac64][],
 install it using `go get github.com/heyLu/qst` or clone the repo and build
 it yourself to hack on it.
 
