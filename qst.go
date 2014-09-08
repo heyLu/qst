@@ -24,7 +24,7 @@ import (
 )
 
 var delay = flag.Duration("delay", 1*time.Second, "time to wait until restart")
-var autoRestart = flag.Bool("autorestart", true, "automatically restart after command exists")
+var autoRestart = flag.Bool("autorestart", false, "automatically restart after command exists")
 var command = flag.String("command", "", "command to run ({file} will be substituted)")
 var projectType = flag.String("type", "", "project type to use (autodetected if not present)")
 var step = flag.String("step", "run", "which step to run (build, run or test)")
