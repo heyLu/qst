@@ -27,7 +27,7 @@ directory and it tries to detect what it is and how to run it.
 anything, but to make your life a little bit simpler. there are more interesting
 things to remember.
 
-for more, see ["introducing quickstart"](https://github.com/heyLu/w/blob/master/introducing-quickstart.md)
+for more, see [introducing quickstart](https://github.com/heyLu/w/blob/master/introducing-quickstart.md)
 
 ## I want that
 
