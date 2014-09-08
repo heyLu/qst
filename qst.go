@@ -30,6 +30,9 @@ var projectType = flag.String("type", "", "project type to use (autodetected if 
 var step = flag.String("step", "run", "which step to run (build, run or test)")
 var justDetect = flag.Bool("detect", false, "detect the project type and exit")
 var remote = flag.Bool("remote", false, "fetch and run a remote project")
+var version = flag.Bool("v", false, "display version and exit")
+
+var VERSION = "v0.1.0"
 
 func main() {
 	flag.Usage = func() {
@@ -44,6 +47,11 @@ func main() {
 
 	flag.Parse()
 	args := flag.Args()
+
+	if *version {
+		fmt.Printf("qst %s\n", VERSION)
+		os.Exit(0)
+	}
 
 	if len(args) < 1 {
 		flag.Usage()
