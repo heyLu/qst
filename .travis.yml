@@ -5,4 +5,4 @@ go:
   - 1.3
   - tip
 
-script: go build
+script: go build && ./qst -detect examples
