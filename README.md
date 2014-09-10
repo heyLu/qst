@@ -1,4 +1,4 @@
-# qst - run things quickly (and easily)
+# qst - run things quickly (and easily) ![build status](https://travis-ci.org/heyLu/qst.svg?branch=master)
 
 `qst` (pronounced *quickstart*) is intended to be run in unfamilar
 environments, you pass it a file or a directory and it tries to detect
