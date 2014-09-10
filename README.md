@@ -1,7 +1,8 @@
 # qst - run things quickly (and easily)
 
-intended to be run in unfamilar environments, you pass it a file or a
-directory and it tries to detect what it is and how to run it.
+`qst` (pronounced *quickstart*) is intended to be run in unfamilar
+environments, you pass it a file or a directory and it tries to detect
+what it is and how to run it.
 
 - run `qst` or `qst -h` to see options and support project types
 - `qst hello_world.go`: compiles and runs `hello_world.go`, rerunning
