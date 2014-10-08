@@ -32,7 +32,7 @@ for more, see [introducing quickstart](https://github.com/heyLu/w/blob/master/in
 
 ## I want that
 
-Great! You can either download precompiled binaries ([bsd64][], [linux64][], [mac64][],
+Great! You can either download precompiled binaries ([bsd64][], [linux64][], [mac64][]),
 install it using `go get github.com/heyLu/qst` or clone the repo and build
 it yourself to hack on it.
 
@@ -73,7 +73,7 @@ for the various steps and a dection pattern:
 // ...
 ```
 
-You can also check for the presence using `matchFile("bin/rails"). If
+You can also check for the presence using `matchFile("bin/rails")`. If
 you need to do more you can also specify a `Matcher` function to detect
 the type.
 
